@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>COMP3095_ICE1_101443133_Kadioglu</title>
+  <style>
+    @page { size: letter; margin: 16mm; }
+    body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #111; }
+    h1 { font-size: 16pt; margin: 0 0 4px; }
+    h2 { font-size: 13pt; border-bottom: 1px solid #333; margin: 18px 0 8px; }
+    .sub { color: #333; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; }
+    th, td { border: 1px solid #444; padding: 5px 7px; vertical-align: top; }
+    th { background: #eee; text-align: left; }
+    .small { font-size: 10pt; }
+    .box { border: 1px solid #444; padding: 8px; margin: 8px 0; }
+    .warn { background: #fff6e5; border: 1px solid #c98900; padding: 8px; margin: 10px 0; }
+    .ok { background: #eef8ee; }
+    label { display: inline-block; min-width: 220px; }
+    input[type="text"] { border: none; border-bottom: 1px solid #999; width: 55%; }
+  </style>
+</head>
+<body>
+  <h1>COMP 3095 · In-Class Exercise 1</h1>
+  <div class="sub">Demonstration &amp; Status Checklist · product-service · Spring Boot · MongoDB · Docker · GitLab</div>
+
+  <div class="warn">
+    <strong>Honesty note:</strong> The demonstration video has not been recorded yet, so no “Shown” boxes are ticked and no timestamps are invented. Tick items and add mm:ss times only after they appear in your own video. An accurate partial checklist is worth more than a fully ticked one the video contradicts.
+  </div>
+
+  <h2>Your details</h2>
+  <table>
+    <tr><th>Full name</th><td>Emre Kadioglu</td></tr>
+    <tr><th>Student ID</th><td>101443133</td></tr>
+    <tr><th>Section (in-person day)</th><td>Wednesday / Thursday / Friday — circle your section before submit</td></tr>
+    <tr><th>GitLab username</th><td>________________ (not GitHub)</td></tr>
+    <tr><th>GitLab repository URL</th><td>https://gitlab.com/&lt;your-username&gt;/COMP3095-2026</td></tr>
+    <tr><th>Demonstration video URL</th><td>Not recorded yet — add unlisted YouTube / OneDrive / Drive link</td></tr>
+    <tr><th>Video length (mm:ss)</th><td>____:____ (must be ≤ 10:00)</td></tr>
+    <tr><th>Commit shown in video (first 8 of SHA)</th><td>________ (from git log -1 --oneline, must match GitLab)</td></tr>
+    <tr><th>Date submitted</th><td>________________</td></tr>
+  </table>
+
+  <h2>A · Introduction</h2>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>A1</td><td>Title card: name, student ID, section, COMP 3095, “In-Class Exercise 1 - product-service”</td><td>☐</td><td></td></tr>
+    <tr><td>A2</td><td>Technologies: Spring Boot, Spring Data MongoDB, Docker, GitLab, Postman</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>B · GitLab repository</h2>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>B1</td><td>Private project COMP3095-2026 on GitLab with Private visibility visible (not GitHub)</td><td>☐</td><td></td></tr>
+    <tr><td>B2</td><td>Manage → Members shows s.santilli as Reporter</td><td>☐</td><td></td></tr>
+    <tr><td>B3</td><td>Commit history on main shows work beyond the initial commit</td><td>☐</td><td></td></tr>
+    <tr><td>B4</td><td>git log -1 --oneline SHA matches latest GitLab commit and the SHA on page 1</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>C · Project structure and code</h2>
+  <p class="small">Implemented in the local COMP3095-2026 project. Tick only when pointed at on camera.</p>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Ready in code</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>C1</td><td>microservices-parent contains product-service; parent has no src folder</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C2</td><td>settings.gradle.kts includes product-service</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C3</td><td>application.properties: port 8080 and MongoDB URI with credentials and authSource=admin</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C4</td><td>Packages model, repository, dto, service, controller under ca.gbc.productservice</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C5</td><td>Product is @Document(value = "product") and price is BigDecimal</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C6</td><td>ProductRepository extends MongoRepository&lt;Product, String&gt; with no methods of its own</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C7</td><td>ProductRequest has no id; ProductResponse does</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C8</td><td>ProductService implements all four methods with log.info on create</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+    <tr><td>C9</td><td>ProductController delegates to the service, no repository calls, uses @ResponseStatus</td><td class="ok">Yes</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>D · Docker environment</h2>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>D1</td><td>docker network ls lists mynetwork</td><td>☐</td><td></td></tr>
+    <tr><td>D2</td><td>comp3095-mongodb running on 27017 with mongo-data volume</td><td>☐</td><td></td></tr>
+    <tr><td>D3</td><td>(Optional) mongo-express on 8081</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>E · Run the service</h2>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>E1</td><td>Started ProductServiceApplication and Tomcat started on port(s): 8080, no exceptions</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>F · Endpoint tests (in this order)</h2>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>F1</td><td>POST /api/product → 201 Created with generated id</td><td>☐</td><td></td></tr>
+    <tr><td>F2</td><td>GET /api/product → 200 OK with the new product</td><td>☐</td><td></td></tr>
+    <tr><td>F3</td><td>PUT /api/product/{id} → 204 No Content</td><td>☐</td><td></td></tr>
+    <tr><td>F4</td><td>GET shows updated values</td><td>☐</td><td></td></tr>
+    <tr><td>F5</td><td>DELETE /api/product/{id} → 204 No Content</td><td>☐</td><td></td></tr>
+    <tr><td>F6</td><td>GET confirms removal</td><td>☐</td><td></td></tr>
+    <tr><td>F7</td><td>IntelliJ console log.info line with the F1 id</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>G · Data in MongoDB</h2>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>G1</td><td>After F1, document in product collection of product-service database (Mongo Express :8081 or mongosh)</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>H · Wrap-up</h2>
+  <p class="small">Say this on camera in your own words (do not read a generic “I learned Spring Boot”). Suggested talking points you can adapt:</p>
+  <table>
+    <tr><th>#</th><th>Show this</th><th>Shown</th><th>Time</th></tr>
+    <tr><td>H1</td><td>Specific learning: DTOs so the request has no id while Mongo generates one; controller never talks to the repository</td><td>☐</td><td></td></tr>
+    <tr><td>H2</td><td>Challenge: Mongo auth — URI needed authSource=admin to match the container root user; fixed by aligning credentials and authSource with docker-compose</td><td>☐</td><td></td></tr>
+  </table>
+
+  <h2>Known issues</h2>
+  <div class="box">
+    Video is not included with this draft. GitLab project COMP3095-2026, member s.santilli (Reporter), and a matching git log SHA are not demonstrated yet. GitHub URL https://github.com/emrekadioglu/COMP_3095 cannot be used for this submission. After the private GitLab project is pushed and the ≤10:00 video is recorded, tick only items that appear on screen, fill timestamps, and delete this paragraph if every required item is shown.
+  </div>
+
+  <h2>Declaration</h2>
+  <div class="box">
+    I confirm that this is my own individual work, that the video shows my own code running on my own machine, and that the repository linked above is the one I demonstrated.<br /><br />
+    Name: Emre Kadioglu &nbsp;&nbsp;&nbsp; Date: ______________ &nbsp;&nbsp;&nbsp; Signature: ______________
+  </div>
+
+  <h2>Before you submit</h2>
+  <p>☐ Video is 10:00 or shorter, and the link plays in a private/incognito window.<br />
+     ☐ Repository URL is on gitlab.com, not GitHub, and s.santilli is a Reporter.<br />
+     ☐ Every ticked item has a timestamp, and anything unticked is explained under Known issues.<br />
+     ☐ All three items are submitted together before Friday, October 9, 2026 at 11:59 pm.</p>
+</body>
+</html>

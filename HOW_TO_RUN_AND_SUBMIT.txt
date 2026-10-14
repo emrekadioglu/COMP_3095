@@ -1,0 +1,50 @@
+COMP 3095 ICE1 — how to run and what to submit
+Student: Emre Kadioglu  |  ID: 101443133
+
+WHAT TO SUBMIT (all three together — GitHub is NOT accepted)
+1. Demonstration video URL (unlisted YouTube / OneDrive / Drive, anyone-with-link, <= 10:00)
+2. GitLab repository URL: https://gitlab.com/<YOUR-GITLAB-USERNAME>/COMP3095-2026
+3. Completed checklist named: COMP3095_ICE1_101443133_Kadioglu.pdf
+   (a draft is in submission\COMP3095_ICE1_101443133_Kadioglu.html — print to PDF after you add video timestamps)
+
+GITHUB LINK YOU SENT
+https://github.com/emrekadioglu/COMP_3095  — the rubric gives 0 for GitHub. Push THIS folder to GitLab instead.
+
+GITLAB STEPS
+1. Create a PRIVATE project named COMP3095-2026 on gitlab.com
+2. Manage → Members → Invite s.santilli as Reporter
+3. Push this project (more than the initial commit):
+     git init
+     git add .
+     git commit -m "Add product-service Spring Boot MongoDB microservice"
+     git branch -M main
+     git remote add origin https://gitlab.com/<YOUR-USERNAME>/COMP3095-2026.git
+     git push -u origin main
+4. Run: git log -1 --oneline
+   Copy the SHA (first 8 chars) onto the checklist page 1.
+
+DOCKER (before recording)
+  powershell -File start-docker.ps1
+  Confirm: docker network ls shows mynetwork
+  Confirm: docker ps shows comp3095-mongodb on 27017 with volume mongo-data
+
+RUN THE SERVICE
+  Open this folder in IntelliJ as a Gradle project
+  Enable annotation processing (Lombok)
+  Run ProductServiceApplication
+  Console must show: Started ProductServiceApplication  and  Tomcat started on port(s): 8080
+
+POSTMAN
+  Import product-service\postman\COMP3095-ICE1-product-service.postman_collection.json
+  Run F1 through F6 in order. After F1, copy the generated id into F3 and F5.
+  Then show the log.info line in the IntelliJ console (F7): Product <id> is saved
+  For G1: open http://localhost:8081 (Mongo Express) → product-service → product
+  OR: docker exec -it comp3095-mongodb mongosh -u admin -p password --authenticationDatabase admin
+      then: use product-service
+            db.product.find().pretty()
+
+VIDEO ORDER (A → H), zoom fonts so status codes are readable.
+Do not tick checklist items that are not on screen. After recording, put timestamps on the HTML/PDF.
+
+MongoDB URI used:
+  mongodb://admin:password@localhost:27017/product-service?authSource=admin
